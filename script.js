@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const JIKAN_API_URL = 'https://api.jikan.moe/v3';
     const GIPHY_API_KEY = 'YOUR_GIPHY_API_KEY';
 
-    // Fetch and display movies
+    
     fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${TMDB_API_KEY}`)
         .then(response => response.json())
         .then(data => {
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
 
-    // Fetch and display TV series
+    
     fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${TMDB_API_KEY}`)
         .then(response => response.json())
         .then(data => {
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
 
-    // Fetch and display sports
+
     fetch(`https://www.thesportsdb.com/api/v1/json/${SPORTS_DB_API_KEY}/search_all_leagues.php?s=Soccer`)
         .then(response => response.json())
         .then(data => {
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
 
-    // Fetch and display news
+
     fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${NEWS_API_KEY}`)
         .then(response => response.json())
         .then(data => {
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
 
-    // Fetch and display anime
+
     fetch(`${JIKAN_API_URL}/top/anime/1/airing`)
         .then(response => response.json())
         .then(data => {
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
 
-    // Fetch and display kids content
+
     fetch(`https://api.giphy.com/v1/gifs/search?api_key=${GIPHY_API_KEY}&q=cartoon&limit=10&rating=g`)
         .then(response => response.json())
         .then(data => {
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
 
-    // Signup form submission
+
     if (signupForm) {
         signupForm.addEventListener("submit", function(event) {
             event.preventDefault();
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Login form submission
+
     if (loginForm) {
         loginForm.addEventListener("submit", function(event) {
             event.preventDefault();
@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // OTP form submission
+
     if (otpForm) {
         otpForm.addEventListener("submit", function(event) {
             event.preventDefault();
@@ -173,10 +173,10 @@ document.addEventListener("DOMContentLoaded", function() {
             .then((data) => {
                 if (data.success) {
                     alert("OTP verified. You are logged in!");
-                    window.location.href = "index.html"; // Redirect to home page
+                    window.location.href = "index.html"; 
                 } else {
                     alert("Invalid OTP. Please try again.");
-                    otpInput.value = ""; // Clear OTP input
+                    otpInput.value = ""; 
                 }
             })
             .catch((error) => {

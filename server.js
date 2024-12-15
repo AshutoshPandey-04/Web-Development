@@ -13,7 +13,6 @@ const authToken = "YOUR_TWILIO_AUTH_TOKEN";
 const client = new twilio(accountSid, authToken);
 
 let registeredUsers = [];
-
 const RECAPTCHA_SECRET_KEY = "YOUR_RECAPTCHA_SECRET_KEY";
 
 // Endpoint to register new users
