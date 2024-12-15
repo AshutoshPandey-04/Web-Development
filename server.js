@@ -15,19 +15,16 @@ const client = new twilio(accountSid, authToken);
 let registeredUsers = [];
 const RECAPTCHA_SECRET_KEY = "YOUR_RECAPTCHA_SECRET_KEY";
 
-// Endpoint to register new users
 app.post("/api/signup", (req, res) => {
     const newUser = req.body;
     registeredUsers.push(newUser);
     res.status(200).json({ message: "User registered successfully." });
 });
 
-// Endpoint to login and send OTP
 app.post("/api/login", (req, res) => {
     const { username, password, captchaResponse } = req.body;
     const user = registeredUsers.find((u) => u.username === username && u.password === password);
 
-    // Verify CAPTCHA
     const verifyCaptchaUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_SECRET_KEY}&response=${captchaResponse}`;
     fetch(verifyCaptchaUrl, { method: "POST" })
         .then((response) => response.json())
@@ -62,7 +59,6 @@ app.post("/api/login", (req, res) => {
         });
 });
 
-// Endpoint to verify OTP and login user
 app.post("/api/verify-otp", (req, res) => {
     const { otp } = req.body;
     const user = registeredUsers.find((u) => u.otp == otp);
